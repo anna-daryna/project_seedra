@@ -1,0 +1,224 @@
+@import "../utils/vars.scss";
+
+.contact-us {
+  display: flex;
+  margin-inline: 165px;
+  justify-content: center;
+  margin-top: 32px;
+  margin-bottom: 65px;
+
+  background: $c--white;
+
+  &__container {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "info form"
+      "empty form"
+      "details form";
+    border-radius: 24px;
+    padding: 0 40px 32px 60px;
+    width: 100%;
+    height: 593px;
+    overflow: hidden;
+
+    background: $c--first_bg;
+    background-image: url('/images/contacts_bg.png');
+    background-size: 110%;
+    background-position: top -50px right -30px;
+    background-repeat: no-repeat;
+  }
+
+  &__info {
+    grid-area: info;
+    margin-top: 48px;
+  }
+
+  &__title {
+    margin-bottom: 15px;
+    color: $c--text_primary;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 54px;
+    letter-spacing: -5%;
+    text-align: left;
+  }
+
+  &__description {
+    width: 249px;
+    color: $c--text_primary;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+
+  &__details {
+    grid-area: details;
+    align-self: end;
+    margin-top: auto;
+  }
+
+  &__detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  &__icon {
+    margin-right: 22px;
+    width: 24px;
+    height: 24px;
+    padding: 16px;
+    border-radius: 15px;
+    background: $c--white;
+
+    &--upload {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  &__link {
+    color: $c--text_secondary;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 31.5px;
+    letter-spacing: -2%;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  &__form {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    border-radius: 29px;
+    background: $c--white;
+    padding: 26px 32px 26px 33px;
+    margin-top: 32px;
+  }
+
+  &__label {
+    color: $c--text_secondary;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 178.19%;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-bottom: 2px;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: 10px;
+    padding-left: 24px;
+    padding-top: 14px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+
+    border: 1px solid $c--border;
+    border-radius: 4px;
+
+    font-family: Lexend;
+    color: $c--text_secondary;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 28px;
+    letter-spacing: 0%;
+    text-align: left;
+
+    &:hover {
+      box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.32);
+    }
+
+    &:focus {
+      color: $c--text_primary;
+      font-family: Lexend;
+      outline: none;
+    }
+  }
+
+  &__textarea {
+    height: 133px;
+    resize: none;
+  }
+
+  &__upload {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  &__upload-label {
+    display: block;
+    color: rgb(98, 108, 122);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 141.4%;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+
+  &__upload-span {
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+
+    &:hover {
+      color: $c--accent;
+    }
+  }
+
+  &__file {
+    display: none;
+  }
+
+  &__submit-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25px;
+  }
+
+  &__submit {
+    width: 160px;
+    height: 51px;
+
+    border-radius: 8px;
+    background: $c--accent;
+    border: none;
+
+    font-family: Lexend;
+    color: $c--white;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 178.19%;
+    letter-spacing: -3.5%;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background: rgb(43, 177, 89);
+    }
+  }
+
+  &__policy {
+    color: $c--text_secondary;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 178.19%;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-left: 17px;
+
+    &-link {
+      color: $c--text_secondary;
+      text-decoration: none;
+    }
+  }
+}
