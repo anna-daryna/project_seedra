@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/project_seedra/static/css/main.8eaf59c9.css",
-    "main.js": "/project_seedra/static/js/main.96161fa8.js",
+    "main.css": "/project_seedra/static/css/main.69a61920.css",
+    "main.js": "/project_seedra/static/js/main.68fe0647.js",
     "static/media/about-seedra-photo.png": "/project_seedra/static/media/about-seedra-photo.25188e8567fcc3707146.png",
     "static/media/about-seedra-photo-mb.png": "/project_seedra/static/media/about-seedra-photo-mb.b5cdd6f80309ac68818f.png",
     "static/media/spinach.png": "/project_seedra/static/media/spinach.35274c4af6f3946467eb.png",
@@ -17,31 +17,13 @@
     "static/media/homepage-info-bg.png": "/project_seedra/static/media/homepage-info-bg.2a1bd4a637c493632fa6.png",
     "static/media/homepage_info_bg_mob.png": "/project_seedra/static/media/homepage_info_bg_mob.46b22a9d2521ff41a16a.png",
     "static/media/client.png": "/project_seedra/static/media/client.345bdfa2cdc7cda64f98.png",
-    "static/media/upload.svg": "/project_seedra/static/media/upload.bc40484dac67e95aa9346ef7dbb4b119.svg",
-    "static/media/logo.svg": "/project_seedra/static/media/logo.dd838136f802cb10cde104a8e08d7a85.svg",
-    "static/media/icon_cart_simple.svg": "/project_seedra/static/media/icon_cart_simple.5709cfe80c7dc1a6016ab7aab167e341.svg",
-    "static/media/icon_cart_white.svg": "/project_seedra/static/media/icon_cart_white.789b9100d87217910ea6b9574a54f51e.svg",
-    "static/media/phone.svg": "/project_seedra/static/media/phone.06f3646182821e3da3fe2ceb979470ec.svg",
-    "static/media/card_heart _active.svg": "/project_seedra/static/media/card_heart _active.56eb41dc11c83969235517401793c5d5.svg",
-    "static/media/card_heart.svg": "/project_seedra/static/media/card_heart.136689655dbfa66e1200f2fefee6820b.svg",
-    "static/media/email.svg": "/project_seedra/static/media/email.fb67fc912dbe2989cc076ce83b7e56eb.svg",
-    "static/media/heart.svg": "/project_seedra/static/media/heart.ce00e729f0f90d70e30f.svg",
-    "static/media/icon_fire.svg": "/project_seedra/static/media/icon_fire.fdfb5115a7529c198d7d1046f6f21bff.svg",
-    "static/media/icon_instagram.svg": "/project_seedra/static/media/icon_instagram.0cda68c3ab8c4521ab953462699537f3.svg",
-    "static/media/icon_search.svg": "/project_seedra/static/media/icon_search.7ebaaa241e0ffac2dc92.svg",
-    "static/media/star-half.svg": "/project_seedra/static/media/star-half.aa7b885e1bf2dc5274cbb166425c3045.svg",
-    "static/media/star.svg": "/project_seedra/static/media/star.fca478e497cea72cec40e4ccf459224f.svg",
-    "static/media/menu.svg": "/project_seedra/static/media/menu.0d84f8ba932ddaa72f25.svg",
-    "static/media/clock.svg": "/project_seedra/static/media/clock.aa2b6edc752c2f44a84c30ee9328b9ce.svg",
+    "static/media/sprite.svg": "/project_seedra/static/media/sprite.50418bff5f2b18f9e914436f97317a07.svg",
     "index.html": "/project_seedra/index.html",
-    "static/media/icon_facebook.svg": "/project_seedra/static/media/icon_facebook.ad8fd529474a6700b98c1a503e4a6334.svg",
-    "static/media/collapse.svg": "/project_seedra/static/media/collapse.41679c39884db66728336fa140a26b38.svg",
-    "static/media/expand.svg": "/project_seedra/static/media/expand.ec2c2ac197156ad0b083bd92f81a76d2.svg",
-    "main.8eaf59c9.css.map": "/project_seedra/static/css/main.8eaf59c9.css.map",
-    "main.96161fa8.js.map": "/project_seedra/static/js/main.96161fa8.js.map"
+    "main.69a61920.css.map": "/project_seedra/static/css/main.69a61920.css.map",
+    "main.68fe0647.js.map": "/project_seedra/static/js/main.68fe0647.js.map"
   },
   "entrypoints": [
-    "static/css/main.8eaf59c9.css",
-    "static/js/main.96161fa8.js"
+    "static/css/main.69a61920.css",
+    "static/js/main.68fe0647.js"
   ]
 }
