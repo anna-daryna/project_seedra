@@ -138,13 +138,9 @@
       }
 
       &-icon {
-        display: inline-block;
         height: 46px;
         width: 46px;
         margin-right: 16px;
-
-        background-image: url('/images/icons/icon_fire.svg');
-        background-size: cover;
 
         @media (max-width: 992px) {
           height: 32px;

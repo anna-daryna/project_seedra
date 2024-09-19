@@ -1,19 +1,26 @@
 import React from 'react';
 import './ContactUs.scss';
 
-import phoneIcon from '../../images/icons/phone.svg';
-import emailIcon from '../../images/icons/email.svg';
-import uploadIcon from '../../images/icons/upload.svg';
+import sprite from '../../images/sprite.svg';
 
 const ContactUs = () => {
-  const handleFileUploadClick = () => {
-    document.getElementById('file-upload').click();
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
+    
+    const files = document.getElementById('file-upload').files;
+    
+    if (files.length > 3) {
+    alert('You can upload no more than 3 files.');
+    return;
+  }
+
+    for (let i = 0; i < files.length; i++) {
+    formData.append(`photo${i + 1}`, files[i]);
+  }
+
     const formObject = {};
     formData.forEach((value, key) => {
       formObject[key] = value;
@@ -22,6 +29,8 @@ const ContactUs = () => {
     console.log('Form Data:', formObject);
 
     alert('Form submitted successfully!');
+
+    document.getElementById('file-upload').value = '';
     event.target.reset();
   };
 
@@ -37,11 +46,15 @@ const ContactUs = () => {
 
         <div className="contact-us__details">
           <div className="contact-us__detail">
-            <img src={phoneIcon} alt="Phone" className="contact-us__icon" />
+            <svg className="contact-us__icon">
+              <use href={`${sprite}#icon-phone`} />
+            </svg>
             <a href="tel:+380987828223" className="contact-us__link">+380 98 782 82 23</a>
           </div>
           <div className="contact-us__detail">
-            <img src={emailIcon} alt="Email" className="contact-us__icon" />
+            <svg className="contact-us__icon">
+              <use href={`${sprite}#icon-email`} />
+            </svg>
             <a href="mailto:mailmail@gmail.com" className="contact-us__link">mailmail@gmail.com</a>
           </div>
         </div>
@@ -57,8 +70,10 @@ const ContactUs = () => {
           <textarea id="message" name="message" className="contact-us__textarea contact-us__textarea--message" placeholder="Your message" required></textarea>
           
           <div className="contact-us__upload">
-            <img src={uploadIcon} alt="Upload" className="contact-us__icon contact-us__icon--upload" />
-            <label htmlFor="file-upload" className="contact-us__upload-label" onClick={handleFileUploadClick}>
+            <svg className="contact-us__icon contact-us__icon--upload">
+              <use href={`${sprite}#icon-upload`} />
+            </svg>
+            <label htmlFor="file-upload" className="contact-us__upload-label">
               <span className="contact-us__upload-span">Upload photos</span> (No more than 3 photos. Format: JPG, PNG)
             </label>
             <input type="file" id="file-upload" className="contact-us__file" multiple accept="image/jpg, image/png" style={{ display: 'none' }} />

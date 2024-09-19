@@ -30,9 +30,9 @@
   }
 
   &__logo {
-    img {
-      width: 125px;
-      height: auto;
+    svg {
+      width: auto;
+      height: 27px;
       margin-right: 70px;
       transition: transform 0.3s ease-in-out;
       cursor: pointer;
@@ -135,9 +135,14 @@
     }
   }
 
-  &__icon img {
+  &__icon svg {
     width: 24px;
     height: 24px;
+    fill: $c--text_secondary;
+
+    &:hover {
+      fill: $c--accent;
+    }
   }
 
     @media (max-width: 992px) {
@@ -155,3 +160,4 @@
       }
     }
   }
+  

@@ -5,11 +5,7 @@ import renderStars from '../utils/renderStars';
 import cilantroImage from '../../images/cilantro.png';
 import cornImage from '../../images/corn.png';
 import spinachImage from '../../images/spinach.png';
-import fireIcon from '../../images/icons/icon_fire.svg';
-import heart from '../../images/icons/card_heart.svg';
-import heartActive from '../../images/icons/card_heart _active.svg';
-import cartSimple from '../../images/icons/icon_cart_simple.svg';
-import cartActive from '../../images/icons/icon_cart_white.svg'
+import sprite from '../../images/sprite.svg';
 
 const OurProducts = () => {
   const [favorites, setFavorites] = useState([]);
@@ -91,25 +87,29 @@ const OurProducts = () => {
           <div key={product.id} className={`product-card ${isMobile ? 'product-card--mobile' : ''}`} style={{ animationDelay: `${index * 4}s` }}>
             <img src={product.thumbnail} alt={product.title} className="product-card__image" />
             <div className="product-card__icons">
-              <img
-                src={favorites.includes(product.id) ? heartActive : heart}
-                alt="Favorite"
+              <svg
                 className={`product-card__icon--favorite ${favorites.includes(product.id) ? 'active' : ''}`}
                 onClick={() => toggleFavorite(product.id)}
-              />
-              <img
-                src={cart.includes(product.id) ? cartActive : cartSimple}
-                alt="Cart"
+              >
+                <use href={`${sprite}#icon-heart`}/>
+              </svg>
+              <svg
                 className={`product-card__icon--cart ${cart.includes(product.id) ? 'active' : ''}`}
                 onClick={() => toggleCart(product.id)}
-              />
+              >
+                <use href={`${sprite}#icon-cart`} />
+              </svg>
             </div>
             <div className="product-card__stars">
               {renderStars(4)} <span className="product-card__additional-text">(123)</span>
             </div>
             <h2 className="product-card__title">{product.title}</h2>
             <div className="product-card__price-container">
-              {product.id === 5 && <img src={fireIcon} alt="Promotion" className="product-card__promo-icon" />}
+              {product.id === 5 && (
+                <svg className="product-card__promo-icon">
+                  <use href={`${sprite}#icon-fire`} />
+                </svg>
+              )}
               <p className="product-card__price">${product.price}</p>
               {product.id === 5 && <span className="product-card__old-price">${product.oldPrice}</span>}
             </div>

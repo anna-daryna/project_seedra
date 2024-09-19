@@ -4,7 +4,7 @@ import './OurBlog.scss';
 import spinachImage from '../../images/blog-bg.png';
 import farmer from '../../images/farmer.png';
 import strawberries from '../../images/strawberries.png';
-import clock from '../../images/icons/clock.svg';
+import sprite from '../../images/sprite.svg';
 
 const blogPosts = [
   {
@@ -93,7 +93,9 @@ const OurBlog = () => {
                 }`}
               >
                 <time className="our-blog__date">
-                  <img src={clock} alt="Clock" className="our-blog__clock-icon" />{' '}
+                  <svg className="our-blog__clock-icon">
+                    <use xlinkHref={`${sprite}#icon-clock`} />
+                  </svg>{' '}
                   {post.date}
                 </time>
                 <h3 className="our-blog__post-title">{post.title}</h3>

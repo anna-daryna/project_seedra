@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './HomePage.scss';
 import product from '../../images/homepage_product.png';
+import sprite from '../../images/sprite.svg';
 
 const HomePage = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
@@ -20,7 +21,9 @@ const HomePage = () => {
               <img src={product} alt="SEEDRA Cilantro" />
             </div>
             <div className="homepage__price">
-              <span className="homepage__price-icon"></span>
+              <svg class="homepage__price-icon">
+                <use href={`${sprite}#icon-fire`} />
+              </svg>
               <span className="homepage__price-new">$12.56</span>
               <span className="homepage__price-old">$15.56</span>
             </div>
@@ -45,7 +48,9 @@ const HomePage = () => {
                 Be sure of our quality - the freshest batches of this season. Non-GMO, Heirloom - our seeds were tested and have the best germination ratings. Your easy growing experience is our guarantee.
               </p>
               <div className="homepage__price">
-                <span className="homepage__price-icon"></span>
+                <svg class="homepage__price-icon">
+                  <use href={`${sprite}#icon-fire`} />
+                </svg>
                 <span className="homepage__price-new">$12.56</span>
                 <span className="homepage__price-old">$15.56</span>
               </div>

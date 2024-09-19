@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 12px 165px 12px 165px;
   margin-bottom: 32px;
 
   background-color: $c--white;
@@ -19,10 +19,9 @@
     margin-bottom: 30px;
   }
 
-  &__logo img {
+  &__logo svg {
     height: 21px;
     width: 97px;
-    padding-left: 165px;
     margin-right: 64px;
     align-items: center;
 
@@ -151,8 +150,6 @@
         margin-left: 16px;
         box-sizing: border-box;
 
-        background-image: url('/images/icons/menu.svg');
-
         cursor: pointer;
       }
     }
@@ -170,14 +167,21 @@
 
     &--facebook {
       margin-right: 13px;
-      background-image: url('/images/icons/icon_facebook.svg');
+      fill: $c--text_secondary;
+
+      &:hover {
+        fill: $c--accent;
+      }
     }
 
     &--instagram {
       margin-right: 8px;
       margin-left: 45px;
+      fill: $c--text_secondary;
 
-      background-image: url('/images/icons/icon_instagram.svg');
+      &:hover {
+        fill: $c--accent;
+      }
     }
 
     &--heart {
@@ -185,11 +189,10 @@
       margin-right: 24px;
       margin-left: 13px;
 
-      background-image: url('/images/icons/heart.svg');
-      background-color: transparent;
-
       justify-content: center;
       align-items: center;
+      fill: none;
+      color: $c--accent;
 
       @media (max-width: 992px) {
         display: block;
@@ -200,8 +203,7 @@
     }
 
     &--cart {
-      background-image: url('/images/icons/icon_cart_simple.svg');
-      padding-right: 165px;
+      color: $c--accent;
 
       @media (max-width: 992px) {
         padding-right: 0;
@@ -212,9 +214,6 @@
       width: 24px;
       height: 24px;
       margin-left: 16px;
-
-      background-image: url('/images/icons/icon_search.svg');
-      background-size: cover;
 
       cursor: pointer;
     }
@@ -241,7 +240,7 @@
     }
 
     .header__search-input {
-      height: 100%;
+      max-height: 100%;
 
       padding: 12px 20px 12px 0;
       margin-left: 16px;
@@ -282,7 +281,7 @@
     width: 80%;
     height: 100vh;
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(-100%);
     background-color: $c--white;
     box-shadow: -6px 4px 41px 0px rgba(0, 0, 0, 0.25);
     transition: transform 0.3s, opacity 0.3s;
@@ -324,6 +323,7 @@
     z-index: 99;
     left: 0;
     top: calc(100% + 8px);
+    overflow: hidden;
 
     flex-direction: column;
     width: 100%;
@@ -353,11 +353,10 @@
     height: 24px;
     padding-bottom: 10px;
 
-    background-size: contain;
-    background-repeat: no-repeat;
-
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
+
+    fill: none;
   }
 
   &__link-icon {

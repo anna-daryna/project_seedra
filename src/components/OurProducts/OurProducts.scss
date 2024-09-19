@@ -1,6 +1,7 @@
 @import "../utils/vars.scss";
 
 .products-container {
+  overflow-x: hidden;
   padding-inline: 165px;
   margin-bottom: 48px;
   text-align: center;
@@ -110,11 +111,6 @@
     align-items: center;
   }
 
-  &__star {
-    width: 16px !important;
-    height: 16px;
-  }
-
   &__additional-text {
     margin-left: 13px;
 
@@ -157,8 +153,12 @@
     border-radius: 50%;
     cursor: pointer;
 
+    fill: none;
+    color: rgb(255, 207, 85);
+
     &.active {
       border-color: rgb(255, 207, 85);
+      fill: rgb(255, 207, 85);
     }
   }
 
@@ -174,12 +174,15 @@
     border-radius: 8px;
     cursor: pointer;
 
+    color: $c--accent;
+
     &:hover {
       background: rgba($c--accent, 0.08);
     }
 
     &.active {
       background: $c--accent;
+      color: $c--white;
     }
   }
 }
@@ -192,4 +195,9 @@
   100% {
     transform: translateX(-285%);
   }
+}
+
+.stars__star {
+  width: 16px;
+  height: 16px;
 }

@@ -1,14 +1,21 @@
 import React from 'react';
-import star from '../../images/icons/star.svg';
-import starHalf from '../../images/icons/star-half.svg';
+import sprite from '../../images/sprite.svg';
 
 const renderStars = (rating) => {
   const stars = [];
   for (let i = 0; i < 5; i++) {
     if (i < rating) {
-      stars.push(<img key={i} src={star} alt="Star" className="stars__star" />);
+      stars.push(
+        <svg key={i} className="stars__star">
+          <use href={`${sprite}#icon-star`} />
+        </svg>
+      );
     } else {
-      stars.push(<img key={i} src={starHalf} alt="Half star" className="stars__star" />);
+      stars.push(
+        <svg key={i} className="stars__star">
+          <use href={`${sprite}#icon-star-half`} />
+        </svg>
+      );
     }
   }
   return stars;

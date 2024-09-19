@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Header.scss';
-import logo from '../../images/logo.svg';
-import expandIcon from '../../images/icons/expand.svg';
-import collapseIcon from '../../images/icons/collapse.svg';
+import { Link } from 'react-router-dom';
+import sprite from '../../images/sprite.svg';
 import arrowIcon from '../../images/icons/arrow.png';
 
 const Header = ({ onLogoClick, onContactsClick }) => {
@@ -39,7 +38,7 @@ const Header = ({ onLogoClick, onContactsClick }) => {
   };
 
   const scrollToSection = (event, sectionId) => {
-  // event.preventDefault();
+  event.preventDefault();
   const section = document.getElementById(sectionId);
   if (section) {
     section.scrollIntoView({ behavior: 'smooth' });
@@ -48,9 +47,11 @@ const Header = ({ onLogoClick, onContactsClick }) => {
 };
 
   return (
-    <header className="header">
+    <div className="header">
       <div className="header__logo" onClick={onLogoClick}>
-        <img src={logo} alt="Logo" />
+        <svg className="header__logo">
+          <use href={`${sprite}#icon-logo`} />
+        </svg>
       </div>
 
       {!isMobile && (
@@ -59,53 +60,74 @@ const Header = ({ onLogoClick, onContactsClick }) => {
             <a className="header__link" href="/all-products">ALL PRODUCTS</a>
             <a className="header__link" href="#about-seedra" onClick={(e) => scrollToSection(e, 'about-seedra')}>ABOUT SEEDRA</a>
             <a className="header__link" href="#our-blog" onClick={(e) => scrollToSection(e, 'our-blog')}>OUR BLOG</a>
-            <a className="header__link" href="/contacts" onClick={(e) => {
-              e.preventDefault();
-              onContactsClick();
-            }}>CONTACTS</a>
+            <Link className="header__link" to="/contacts" onClick={onContactsClick}>CONTACTS</Link>
           </nav>
           <div className="header__icons">
             <a href="https://www.instagram.com/" className="header__icon header__icon--instagram" target="_blank" rel="noopener noreferrer">
+              <svg className="header__icon">
+                <use href={`${sprite}#icon-instagram`} />
+              </svg>
               <span className="visually-hidden">Instagram</span>
             </a>
 
             <a href="https://www.facebook.com/" className="header__icon header__icon--facebook" target="_blank" rel="noopener noreferrer">
+              <svg className="header__icon header__icon--facebook">
+                <use href={`${sprite}#icon-facebook`} />
+              </svg>
               <span className="visually-hidden">Facebook</span>
             </a>
           </div>
 
           <div className="header__search-cart">
-            <div className="header__icon header__icon--search"></div>
+            <svg className="header__icon header__icon--search">
+              <use xlinkHref={`${sprite}#icon-search`} />
+            </svg>
             <input type="text" placeholder="Search" className="header__search-input" />
           </div>
 
           <div className="header__icons">
-          <div className="header__icon header__icon--heart"></div>
-          <div className="header__icon header__icon--cart"></div>
-          <div className="header__icon header__icon--menu" onClick={toggleMenu}></div>
+          <svg className="header__icon header__icon--heart">
+            <use href={`${sprite}#icon-heart`} />
+          </svg>
+          <svg className="header__icon header__icon--cart">
+            <use href={`${sprite}#icon-cart`} />
+          </svg>
+          <svg className="header__icon header__icon--menu" onClick={toggleMenu}>
+            <use href={`${sprite}#icon-menu`} />
+          </svg>
         </div>
         </>
       )}
 
       {isMobile && (
         <div className="header__icons">
-          <div className="header__icon header__icon--heart"></div>
-          <div className="header__icon header__icon--cart"></div>
-          <div className="header__icon header__icon--menu" onClick={toggleMenu}></div>
+          <svg className="header__icon header__icon--heart">
+            <use href={`${sprite}#icon-heart`} />
+          </svg>
+          <svg className="header__icon header__icon--cart">
+            <use href={`${sprite}#icon-cart`} />
+          </svg>
+          <svg className="header__icon header__icon--menu" onClick={toggleMenu}>
+            <use href={`${sprite}#icon-menu`} />
+          </svg>
         </div>
       )}
 
       {isMobile && (
         <div className={`header__mobile-menu ${isMenuOpen ? 'header__mobile-menu--open' : ''}`}>
           <div className="header__search-cart">
-            <div className="header__icon header__icon--search"></div>
+            <svg className="header__icon header__icon--search">
+              <use xlinkHref={`${sprite}#icon-search`} />
+            </svg>
             <input type="text" placeholder="Search" className="header__search-input" />
           </div>
           <nav className="header__navigation">
             <a className="header__link" href="/all-vegetables">All Vegetables</a>
             <div className="header__section">
               <a className="header__link" href="/bundles" onClick={(e) => { e.preventDefault(); toggleSection('bundles'); }}>Bundles</a>
-              <img src={openSections.bundles ? collapseIcon : expandIcon} alt="toggle" onClick={() => toggleSection('bundles')} className="header__sublink-toggle" />
+              <svg className="header__sublink-toggle" onClick={() => toggleSection('bundles')}>
+                <use href={`${sprite}#icon-${openSections.bundles ? 'collapse' : 'expand'}`} />
+              </svg>
               {openSections.bundles && (
                 <div className="header__sub-navigation">
                   <a className="header__sublink" href="/bundles/bundle1">Bundle 1</a>
@@ -115,7 +137,9 @@ const Header = ({ onLogoClick, onContactsClick }) => {
             </div>
             <div className="header__section">
               <a className="header__link" href="/herbs" onClick={(e) => { e.preventDefault(); toggleSection('herbs'); }}>Herbs</a>
-              <img src={openSections.herbs ? collapseIcon : expandIcon} alt="toggle" onClick={() => toggleSection('herbs')} className="header__sublink-toggle" />
+              <svg className="header__sublink-toggle" onClick={() => toggleSection('herbs')}>
+                <use href={`${sprite}#icon-${openSections.herbs ? 'collapse' : 'expand'}`} />
+              </svg>
               {openSections.herbs && (
                 <div className="header__sub-navigation">
                   <a className="header__sublink" href="/herbs/herb1">Herb 1</a>
@@ -125,7 +149,9 @@ const Header = ({ onLogoClick, onContactsClick }) => {
             </div>
             <div className="header__section">
               <a className="header__link" href="/vegetables" onClick={(e) => { e.preventDefault(); toggleSection('vegetables'); }}>Vegetables</a>
-              <img src={openSections.vegetables ? collapseIcon : expandIcon} alt="toggle" onClick={() => toggleSection('vegetables')} className="header__sublink-toggle" />
+              <svg className="header__sublink-toggle" onClick={() => toggleSection('vegetables')}>
+                <use href={`${sprite}#icon-${openSections.vegetables ? 'collapse' : 'expand'}`} />
+              </svg>
               {openSections.vegetables && (
                 <div className="header__sub-navigation">
                   <a className="header__sublink" href="/vegetables/vegetable1">Cucumber</a>
@@ -136,7 +162,9 @@ const Header = ({ onLogoClick, onContactsClick }) => {
             </div>
             <div className="header__section">
               <a className="header__link" href="/fruits" onClick={(e) => { e.preventDefault(); toggleSection('fruits'); }}>Fruits</a>
-              <img src={openSections.fruits ? collapseIcon : expandIcon} alt="toggle" onClick={() => toggleSection('fruits')} className="header__sublink-toggle" />
+              <svg className="header__sublink-toggle" onClick={() => toggleSection('fruits')}>
+                <use href={`${sprite}#icon-${openSections.fruits ? 'collapse' : 'expand'}`} />
+              </svg>
               {openSections.fruits && (
                 <div className="header__sub-navigation">
                   <a className="header__sublink" href="/fruits/fruit1">Fruit 1</a>
@@ -146,7 +174,9 @@ const Header = ({ onLogoClick, onContactsClick }) => {
             </div>
             <div className="header__section">
               <a className="header__link" href="/supplies" onClick={(e) => { e.preventDefault(); toggleSection('supplies'); }}>Supplies</a>
-              <img src={openSections.supplies ? collapseIcon : expandIcon} alt="toggle" onClick={() => toggleSection('supplies')} className="header__sublink-toggle" />
+              <svg className="header__sublink-toggle" onClick={() => toggleSection('supplies')}>
+                <use href={`${sprite}#icon-${openSections.supplies ? 'collapse' : 'expand'}`} />
+              </svg>
               {openSections.supplies && (
                 <div className="header__sub-navigation">
                   <a className="header__sublink" href="/supplies/supply1">Supply 1</a>
@@ -156,7 +186,9 @@ const Header = ({ onLogoClick, onContactsClick }) => {
             </div>
             <div className="header__section">
               <a className="header__link" href="/flowers" onClick={(e) => { e.preventDefault(); toggleSection('flowers'); }}>Flowers</a>
-              <img src={openSections.flowers ? collapseIcon : expandIcon} alt="toggle" onClick={() => toggleSection('flowers')} className="header__sublink-toggle" />
+              <svg className="header__sublink-toggle" onClick={() => toggleSection('flowers')}>
+                <use href={`${sprite}#icon-${openSections.flowers ? 'collapse' : 'expand'}`} />
+              </svg>
               {openSections.flowers && (
                 <div className="header__sub-navigation">
                   <a className="header__sublink" href="/flowers/flower1">Flower 1</a>
@@ -175,16 +207,22 @@ const Header = ({ onLogoClick, onContactsClick }) => {
           </nav>
           <div className="header__icons">
             <a href="https://www.instagram.com/" className="header__icon header__icon--instagram" target="_blank" rel="noopener noreferrer">
+              <svg className="header__icon header__icon--instagram">
+                <use href={`${sprite}#icon-instagram`} />
+              </svg>
               <span className="visually-hidden">Instagram</span>
             </a>
 
             <a href="https://www.facebook.com/" className="header__icon header__icon--facebook" target="_blank" rel="noopener noreferrer">
+              <svg className="header__icon header__icon--facebook">
+                <use href={`${sprite}#icon-facebook`} />
+              </svg>
               <span className="visually-hidden">Facebook</span>
             </a>
           </div>
         </div>
       )}
-    </header>
+    </div>
   );
 };
 

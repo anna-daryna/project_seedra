@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Footer.scss';
-import logo from '../../images/logo.svg';
-import iconFacebook from '../../images/icons/icon_facebook.svg';
-import iconInstagram from '../../images/icons/icon_instagram.svg';
+import sprite from '../../images/sprite.svg';
 
 const Footer = ({ onLogoClick }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
@@ -14,7 +12,7 @@ const Footer = ({ onLogoClick }) => {
   }, []);
 
   const scrollToSection = (event, sectionId) => {
-    // event.preventDefault();
+    event.preventDefault();
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
@@ -22,7 +20,7 @@ const Footer = ({ onLogoClick }) => {
   };
 
   return (
-    <footer className="footer">
+    <div className="footer">
       <div className={`footer__top ${isMobile ? 'footer__top--mobile' : 'footer__top--desktop'}`}>
         {!isMobile && (
           <>
@@ -35,7 +33,9 @@ const Footer = ({ onLogoClick }) => {
             </nav>
 
             <div className="footer__logo" onClick={onLogoClick} style={{ cursor: 'pointer' }}>
-              <img src={logo} alt="Logo" />
+              <svg className="footer__logo">
+                <use href={`${sprite}#icon-logo`} />
+              </svg>
             </div>
 
             <nav className="footer__nav">
@@ -50,7 +50,9 @@ const Footer = ({ onLogoClick }) => {
         {isMobile && (
       <>
         <div className="footer__logo" onClick={onLogoClick} style={{ cursor: 'pointer' }}>
-          <img src={logo} alt="Logo" />
+          <svg className="footer__logo">
+            <use href={`${sprite}#icon-logo`} />
+          </svg>
         </div>
         <div className="footer__lists">
           <nav className="footer__nav footer__left-column">
@@ -78,15 +80,19 @@ const Footer = ({ onLogoClick }) => {
       <div className="footer__bottom">
         <div className="footer__socials">
           <a href="https://www.instagram.com/" className="footer__icon footer__icon--instagram" target="_blank" rel="noopener noreferrer">
-            <img src={iconInstagram} alt="Instagram" />
+            <svg>
+              <use href={`${sprite}#icon-instagram`} />
+            </svg>
           </a>
           <a href="https://www.facebook.com/" className="footer__icon footer__icon--facebook" target="_blank" rel="noopener noreferrer">
-            <img src={iconFacebook} alt="Facebook" />
+            <svg>
+              <use href={`${sprite}#icon-facebook`} />
+            </svg>
           </a>
         </div>
         <span className="footer__rights">All rights reserved</span>
       </div>
-    </footer>
+    </div>
   );
 };
 

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.scss';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import AboutSeedra from './components/AboutSeedra/AboutSeedra';
 import ContactUs from './components/ContactUs/ContactUs';
 import Footer from './components/Footer/Footer';
@@ -10,39 +11,29 @@ import OurProducts from './components/OurProducts/OurProducts';
 import UserReviews from './components/UserReviews/UserReviews';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return (
-          <>
-            <HomePage />
-            <OurProducts />
-            <OurBlog />
-            <UserReviews />
-            <AboutSeedra />
-          </>
-        );
-      case 'contacts':
-        return <ContactUs />;
-      default:
-        return null;
-    }
-  };
-
   return (
-    <>
+    <Router>
       <header>
-        <Header onLogoClick={() => setCurrentPage('home')} onContactsClick={() => setCurrentPage('contacts')} />
+        <Header />
       </header>
       <main>
-        {renderPage()}
+        <Routes>
+          <Route path="/contacts" element={<ContactUs />} />
+          <Route path="/" element={
+            <>
+              <HomePage />
+              <OurProducts />
+              <OurBlog />
+              <UserReviews />
+              <AboutSeedra />
+            </>
+          } />
+        </Routes>
       </main>
       <footer>
-        <Footer onLogoClick={() => setCurrentPage('home')} />
+        <Footer />
       </footer>
-    </>
+    </Router>
   );
 }
 
